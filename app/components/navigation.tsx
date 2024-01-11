@@ -6,7 +6,7 @@ function Navigation() {
       <Link href="/" className="text-slate-800 font-bold">
         Logo
       </Link>
-      <Link className="mx-auto" href="/play">
+      <Link className="mx-auto" href="/game">
         Play
       </Link>
     </div>

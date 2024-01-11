@@ -1,10 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
-import Navigation from "./components/navigation";
+import { Box, Button, Link, Typography } from "@mui/material";
 
 export default function Home() {
   return (
     <div className="grid min-h-screen">
-      <Navigation />
       <Box
         component="span"
         sx={{
@@ -22,7 +20,9 @@ export default function Home() {
         >
           Become rank 1!
         </Typography>
-        <Button variant="outlined">Play now!</Button>
+        <Link href="/game">
+          <Button variant="outlined">Play now!</Button>
+        </Link>
       </Box>
     </div>
   );
