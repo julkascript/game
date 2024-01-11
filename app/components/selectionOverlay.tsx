@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function SelectionOverlay() {
   const [hasMetRequirements, setHasMetRequirements] = useState(false);
+  const [cardsSelected, setCardsSelected] = useState(0);
 
   const hasBorder = hasMetRequirements ? "0.2px solid green" : "";
   return (
@@ -27,11 +28,11 @@ function SelectionOverlay() {
       <Stack>
         <Stack direction="row">
           <Typography variant="subtitle1">Cards selected: </Typography>
-          <Typography variant="subtitle1">5/5</Typography>
+          <Typography variant="subtitle1">{cardsSelected}/5</Typography>
         </Stack>
         <Stack direction="row">
           <Typography variant="subtitle1">Items selected: </Typography>
-          <Typography variant="subtitle1">5/5</Typography>
+          <Typography variant="subtitle1">{cardsSelected}/5</Typography>
         </Stack>
       </Stack>
       <Button
