@@ -4,6 +4,7 @@ function Game() {
   return (
     <div className="game flex">
       <CharacterCard />
+      <CharacterCard />
     </div>
   );
 }
