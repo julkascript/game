@@ -1,61 +1,11 @@
 import { Box, Grid, Stack } from "@mui/material/index";
 import CharacterCard, { Character } from "../components/characterCard";
 import SelectionOverlay from "../components/selectionOverlay";
+import { getAllCharacters } from "../api/actions";
 
-const characters: Character[] = [
-  {
-    name: "Raye",
-    title: "The Spice Master",
-    picture: "/characters/4.png",
-  },
-  {
-    name: "Test1",
-    title: "Test1 title",
-    picture: "/characters/1.png",
-  },
-  {
-    name: "Test2",
-    title: "Test2 title",
-    picture: "/characters/2.png",
-  },
-  {
-    name: "Test3",
-    title: "Test3 title",
-    picture: "/characters/3.png",
-  },
-  {
-    name: "Test4",
-    title: "Test4 title",
-    picture: "/characters/4.png",
-  },
-  {
-    name: "Test4",
-    title: "Test4 title",
-    picture: "/characters/4.png",
-  },
-  {
-    name: "Test4",
-    title: "Test4 title",
-    picture: "/characters/4.png",
-  },
-  {
-    name: "Test4",
-    title: "Test4 title",
-    picture: "/characters/4.png",
-  },
-  {
-    name: "Test4",
-    title: "Test4 title",
-    picture: "/characters/4.png",
-  },
-  {
-    name: "Test4",
-    title: "Test4 title",
-    picture: "/characters/4.png",
-  },
-];
-
-function Game() {
+async function Game() {
+  const characters = await getAllCharacters();
+  console.log(123, characters);
   const charactersBox = characters.map((character, index) => {
     return (
       <CharacterCard
