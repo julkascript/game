@@ -9,7 +9,18 @@ export type Character = {
   picture: string;
 };
 
-function CharacterCard({ name, title, picture }: Character) {
+type CharacterCardProps = Character & {
+  onClick: () => void;
+  isActive?: boolean;
+};
+
+function CharacterCard({
+  name,
+  title,
+  picture,
+  onClick,
+  isActive,
+}: CharacterCardProps) {
   return (
     <Grid item xs={8}>
       <Card
@@ -18,7 +29,10 @@ function CharacterCard({ name, title, picture }: Character) {
           flexDirection: "row",
           width: "20rem",
           justifyContent: "space-between",
+          cursor: "pointer",
+          border: isActive ? "1px solid green" : "",
         }}
+        onClick={onClick}
       >
         <Box
           sx={{
@@ -37,7 +51,7 @@ function CharacterCard({ name, title, picture }: Character) {
             <HealthAndSafetyIcon fontSize="small" color="action" />
           </Stack>
         </Box>
-        <Image src={picture} alt="char-img" width="150" height="64" />
+        <Image src={picture} alt="char-img" width={150} height={36} />
       </Card>
     </Grid>
   );

@@ -3,9 +3,16 @@
 import { Button, Card, Stack, Typography } from "@mui/material/index";
 import { useState } from "react";
 
-function SelectionOverlay() {
+type SelectionOverlayProps = {
+  cardsSelected: number;
+  itemsSelected: number;
+};
+
+function SelectionOverlay({
+  cardsSelected,
+  itemsSelected,
+}: SelectionOverlayProps) {
   const [hasMetRequirements, setHasMetRequirements] = useState(false);
-  const [cardsSelected, setCardsSelected] = useState(0);
 
   const hasBorder = hasMetRequirements ? "0.2px solid green" : "";
   return (
