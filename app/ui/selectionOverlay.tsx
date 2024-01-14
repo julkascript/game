@@ -39,7 +39,7 @@ function SelectionOverlay({
         </Stack>
         <Stack direction="row">
           <Typography variant="subtitle1">Items selected: </Typography>
-          <Typography variant="subtitle1">{cardsSelected}/5</Typography>
+          <Typography variant="subtitle1">{itemsSelected}/5</Typography>
         </Stack>
       </Stack>
       <Button

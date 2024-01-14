@@ -30,7 +30,7 @@ function CharacterCard({
           width: "20rem",
           justifyContent: "space-between",
           cursor: "pointer",
-          border: isActive ? "1px solid green" : "",
+          outline: isActive ? "1px solid green" : "",
         }}
         onClick={onClick}
       >
