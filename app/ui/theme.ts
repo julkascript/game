@@ -12,9 +12,9 @@ export const theme = createTheme({
   //   },
   // },
   palette: {
-    // primary: {
-    //   main: "#1DB954",
-    // },
+    primary: {
+      main: "#1e293b",
+    },
     // secondary: {
     //   main: "#191414",
     // },
