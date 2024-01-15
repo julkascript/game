@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, Card, Stack, Typography } from "@mui/material/index";
-import { useState } from "react";
+import { Button, Card, Stack, Typography, useTheme } from "@mui/material/index";
 
 type SelectionOverlayProps = {
   cardsSelected: number;
@@ -12,9 +11,11 @@ function SelectionOverlay({
   cardsSelected,
   itemsSelected,
 }: SelectionOverlayProps) {
-  const [hasMetRequirements, setHasMetRequirements] = useState(false);
+  const theme = useTheme();
+  const maxSelectedCards = 2;
+  const maxSelectedItems = 0;
+  const hasMetRequirements = cardsSelected === maxSelectedCards;
 
-  const hasBorder = hasMetRequirements ? "0.2px solid green" : "";
   return (
     <Card
       sx={{
@@ -28,23 +29,30 @@ function SelectionOverlay({
         marginLeft: "0 auto",
         marginBottom: "2rem",
         borderRadius: "0.7rem",
-        border: { hasBorder },
+        outline: hasMetRequirements
+          ? `1px solid ${theme.palette.success.main}`
+          : "",
         gap: "2rem",
       }}
     >
       <Stack>
         <Stack direction="row">
           <Typography variant="subtitle1">Cards selected: </Typography>
-          <Typography variant="subtitle1">{cardsSelected}/5</Typography>
+          <Typography variant="subtitle1">
+            {cardsSelected}/{maxSelectedCards}
+          </Typography>
         </Stack>
         <Stack direction="row">
           <Typography variant="subtitle1">Items selected: </Typography>
-          <Typography variant="subtitle1">{itemsSelected}/5</Typography>
+          <Typography variant="subtitle1">
+            {itemsSelected}/{maxSelectedItems}
+          </Typography>
         </Stack>
       </Stack>
       <Button
         variant="contained"
         color="success"
+        className="bg-teal-600"
         disabled={!hasMetRequirements}
       >
         Ready

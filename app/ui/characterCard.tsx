@@ -1,4 +1,4 @@
-import { Box, Card, Grid, Stack, Typography } from "@mui/material";
+import { Box, Card, Grid, Stack, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
@@ -21,6 +21,8 @@ function CharacterCard({
   onClick,
   isActive,
 }: CharacterCardProps) {
+  const theme = useTheme();
+
   return (
     <Grid item xs={8}>
       <Card
@@ -30,7 +32,7 @@ function CharacterCard({
           width: "20rem",
           justifyContent: "space-between",
           cursor: "pointer",
-          outline: isActive ? "1px solid green" : "",
+          outline: isActive ? `1px solid ${theme.palette.success.main}` : "",
         }}
         onClick={onClick}
       >
