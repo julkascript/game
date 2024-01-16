@@ -1,10 +1,16 @@
 import Link from "next/link";
 import NavbarUserMenu from "./navbarUserMenu";
-import { auth } from "@/auth";
+import { auth, signOut } from "@/auth";
 
 async function Navigation() {
   const session = await auth();
   const user = session?.user;
+  console.log(123, user);
+
+  const handleSignOut = async () => {
+    "use server";
+    await signOut();
+  };
 
   return (
     <div className="flex justify-center w-100 p-4 bg-indigo-300 h-14">
@@ -14,7 +20,11 @@ async function Navigation() {
       <Link className="mx-auto" href="/game">
         Play
       </Link>
-      {user ? <NavbarUserMenu /> : <Link href="/login">Sign in</Link>}
+      {user ? (
+        <NavbarUserMenu onLogout={handleSignOut} />
+      ) : (
+        <Link href="/login">Sign in</Link>
+      )}
     </div>
   );
 }

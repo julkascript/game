@@ -1,10 +1,22 @@
 "use client";
-import { Avatar, Box, IconButton, Menu, Tooltip } from "@mui/material/index";
+import {
+  Avatar,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  Tooltip,
+  Typography,
+} from "@mui/material/index";
 import React, { useState } from "react";
-import UserProfileDropdown from "./userProfileDropdown";
 
-function NavbarUserMenu() {
+type NavbarUserMenuProps = {
+  onLogout: () => void;
+};
+
+function NavbarUserMenu({ onLogout }: NavbarUserMenuProps) {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const profileActions = ["My profile", "Logout"];
 
   return (
     <Box sx={{ flexGrow: 0 }}>
@@ -41,7 +53,11 @@ function NavbarUserMenu() {
         open={!!anchorElUser}
         onClose={() => setAnchorElUser(null)}
       >
-        <UserProfileDropdown />
+        {profileActions.map((setting) => (
+          <MenuItem key={setting} onClick={() => onLogout()}>
+            <Typography textAlign="center">{setting}</Typography>
+          </MenuItem>
+        ))}
       </Menu>
     </Box>
   );
