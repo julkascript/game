@@ -46,6 +46,7 @@ export default function LoginForm() {
         variant="contained"
         className="bg-slate-800 hover:bg-slate-950 text-white"
         sx={{ mt: 3, mb: 2 }}
+        // disabled={}
       >
         Sign In
       </Button>
