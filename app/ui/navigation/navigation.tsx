@@ -5,7 +5,6 @@ import { auth, signOut } from "@/auth";
 async function Navigation() {
   const session = await auth();
   const user = session?.user;
-  console.log(123, user);
 
   const handleSignOut = async () => {
     "use server";

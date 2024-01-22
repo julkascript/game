@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Card, Stack, Typography, useTheme } from "@mui/material/index";
+import Link from "next/link";
 
 type SelectionOverlayProps = {
   cardsSelected: number;
@@ -49,14 +50,16 @@ function SelectionOverlay({
           </Typography>
         </Stack>
       </Stack>
-      <Button
-        variant="contained"
-        color="success"
-        className="bg-teal-600"
-        disabled={!hasMetRequirements}
-      >
-        Ready
-      </Button>
+      <Link href="/match/1">
+        <Button
+          variant="contained"
+          color="success"
+          className="bg-teal-600"
+          disabled={!hasMetRequirements}
+        >
+          Ready
+        </Button>
+      </Link>
     </Card>
   );
 }
