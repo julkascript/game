@@ -1,3 +1,4 @@
+import { MatchOrientation } from "@/app/types";
 import { Box, Card, Stack, Typography } from "@mui/material/index";
 import Image from "next/image";
 
@@ -13,6 +14,7 @@ type Character = {
   name: string;
   description?: string;
   picture: string;
+  orientation?: MatchOrientation;
   // abilities: Ability[];
 };
 
@@ -21,6 +23,7 @@ export default function ChosenCharacterInMatch({
   name,
   description,
   picture,
+  orientation = "player",
 }: Character) {
   const abilities: Ability[] = [
     {
@@ -57,12 +60,16 @@ export default function ChosenCharacterInMatch({
     );
   });
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack
+      direction={orientation === "player" ? "row" : "row-reverse"}
+      spacing={1}
+    >
       <Card
         sx={{
           display: "flex",
           flexDirection: "row",
           width: "16rem",
+          direction: orientation === "player" ? "ltr" : "rtl",
         }}
       >
         <Box
